@@ -1,0 +1,52 @@
+<head>
+  <style>
+    body {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+    }
+
+    .main-bar {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    .first-text {
+      font-size: 2rem;
+      text-align: center;
+      margin: 0;
+      padding-top: 1rem;
+    }
+    .post-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      padding-top: 2rem;
+    }
+  </style>
+</head>
+
+<div class="main-bar">
+  <a href="/auth/sign-up">Sign Up</a>
+  <%if(user !== undefined) { %>
+  <form action="/auth/log-out" method="post">
+    <button>Log Out</button>
+  </form>
+  <%} else { %>
+  <a href="/auth/sign-in">Sign In</a>
+  <% }%>
+</div>
+<div>
+  <%if(user !== undefined) { %>
+  <h1 class="first-text">Welcome: <%=user?.firstname%></h1>
+  <%} %>
+  <div class="post-container">
+    <%posts.forEach(post=>{ %>
+    <%-include("./partials/post",{post:post,user:user})%> <%})%> <%if(user !==
+    undefined) { %>
+    <a href="/post/create">Create Post</a>
+    <%}%>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px;
+}
+
+.sign-up {
+  display: flex;
+  flex-direction: column;
+}

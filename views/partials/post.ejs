@@ -1,0 +1,20 @@
+<head></head>
+    <style>
+        .post{
+            box-shadow: blueviolet 0 0 20px 14px;
+            padding: 1rem;
+        }
+        .bold{
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+
+<div class="post">
+    <p><span class="bold">Title:</span> <%=post.title%></p>
+    <p><span class="bold">Content:</span> <%=post.post%></p>
+    <%if(user !== undefined){ %>
+    <p><span class="bold">Owner:</span> <%=post.firstname + " "+post.lastname%></p>
+    <%}%>
+</div>
